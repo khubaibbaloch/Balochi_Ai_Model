@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotion Analyzer - AI Project</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+</head>
+<body>
+    <div id="particles-js"></div>
+
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <h1>Emotion Analyzer</h1>
+            <p>Unleash the Power of AI to Read Emotions</p>
+        </div>
+    </header>
+
+    <div class="main-container">
+        
+        <div class="container">
+            <h2>Discover Your Emotion</h2>
+            <p>Enter a sentence and let AI reveal its emotional tone.</p>
+            <div class="input-section">
+                <textarea id="user-input" placeholder="Type here..."></textarea>
+                <button onclick="analyzeEmotion()">Analyze Emotion</button>
+            </div>
+            <div id="result" class="result"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 Emotion Analyzer | Bringing AI to Life</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
