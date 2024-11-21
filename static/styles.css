@@ -25,8 +25,6 @@ body {
     z-index: -1;
 }
 
-
-
 /* Header styling */
 header {
     background: linear-gradient(90deg, #1c1f34, #2a2f4a);
@@ -49,7 +47,6 @@ header .header-container p {
     font-size: 15px;
     color: #9da8ff;
     user-select: none;
-    user-select: none;
 }
 
 /* Main container styling */
@@ -67,7 +64,7 @@ header .header-container p {
     border-radius: 15px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3); /* Subtle shadow */
     padding: 30px 40px;
-    max-width: 500px;
+    max-width: 650px;
     width: 100%;
     text-align: center;
     position: relative;
@@ -76,21 +73,6 @@ header .header-container p {
     z-index: 0; /* Ensure it's above the animated border */
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, border-width 0.3s ease; /* Apply transition to properties */
 }
-
-/* Moving border animation */
-.container:before {
-    content: "";
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    right: 5px;
-    bottom: 5px;
-    border-radius: 15px;
-   
-    z-index: -1; /* Ensure it's always below the container content */
-}
-
-
 
 /* Hover scaling effect */
 .container:hover {
@@ -115,76 +97,65 @@ header .header-container p {
     user-select: none;
 }
 
-/* Input styling */
-.input-section {
-    margin-bottom: 20px;
+/* Ensure the form elements are stacked vertically */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Optional: Center elements horizontally */
+    gap: 15px; /* Add spacing between the text area and the button */
 }
 
-.input-section textarea {
+.error {
+    color: #ff4d4d;
+    font-size: 16px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Styling for the text area */
+#user-input {
     width: 100%;
-    height: 100px;
+    height: 120px;
     padding: 12px;
     font-size: 16px;
     border: 1.2px solid #5d9eff;
     border-radius: 10px;
-    outline: none;
     background-color: #232631;
     color: #d3d7ff;
     resize: none;
-    user-select: text;
-    transition: border 0.3s ease;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.input-section textarea:focus {
+#user-input:focus {
     border-color: #c490ff;
+    box-shadow: 0 0 8px rgba(196, 144, 255, 0.4);
 }
 
-/* Button styling with smooth color shift on hover */
-.input-section button {
+/* Styling for the button */
+#analyze-btn {
     width: 100%;
+    max-width: 250px;
     padding: 12px;
     font-size: 16px;
+    font-weight: bold;
     color: #ffffff;
-    background: linear-gradient(90deg, #5d9eff, #c490ff); /* Initial gradient */
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #5d9eff, #c490ff);
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    transition: background 0.3s ease; /* Smooth transition for the background */
+    transition: background 0.3s ease, transform 0.2s ease;
 }
 
-/* Hover effect with color shift */
-.input-section button:hover {
-    background: linear-gradient(90deg, #c490ff, #5d9eff); /* Inverted gradient for hover */
+#analyze-btn:hover {
+    background: linear-gradient(90deg, #c490ff, #5d9eff);
+    transform: scale(1.05);
 }
 
-/* Result styling */
-.result {
-    font-size: 18px;
-    font-weight: bold;
-    margin-top: 20px;
-    padding: 12px;
-    border-radius: 8px;
-    display: none;
-    user-select: none;
-    
-}
-
-.positive {
-    background-color: #3c6f41;
-    color: #a7f5b1;
-    border: 1px solid #82e295;
-}
-
-.neutral {
-    background-color: #565656;
-    color: #d3d7ff;
-    border: 1px solid #9da8ff;
-}
-
-.negative {
-    background-color: #742a2a;
-    color: #ffb3b3;
-    border: 1px solid #ff8e8e;
+#analyze-btn:active {
+    background: linear-gradient(90deg, #4e8cce, #a375cc);
+    transform: scale(1);
 }
 
 /* Footer styling */
@@ -197,12 +168,13 @@ footer {
     user-select: none;
 }
 
+/* Initially hidden result section */
+#result {
+    display: none;
+    margin-top: 20px;
+}
 
-#tsparticles {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;  /* Ensures it's behind other content */
+/* Visible result section */
+#result.visible {
+    display: block;
 }

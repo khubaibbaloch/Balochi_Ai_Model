@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emotion Analyzer - AI Project</title>
+    <title>Emotion Analyzer</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 
     <!-- Link to Particles.js library (Optional) -->
@@ -26,20 +26,27 @@
             <p>Enter a sentence and let AI reveal its emotional tone.</p>
             
             <!-- Form to send data to Flask backend -->
-            <form method="POST" action="/">
-                <textarea id="user-input" name="sentence" placeholder="Type here..."></textarea>
-                <button type="submit">Analyze Emotion</button>
+            <form method="POST" action="/" id="emotionForm">
+                <textarea id="user-input" name="sentence" placeholder="Type here..." required></textarea>
+                <button id="analyze-btn" type="submit">Analyze Emotion</button>
             </form>
-
-            <!-- Display the result after prediction -->
             
-            <div id="result" class="result">
-                {% if prediction %}
-                <h3>Sentence: "{{ sentence }}"</h3>
-                <h4>Sentiment: {{ prediction }}</h4>
+            <!-- Result section (hidden initially) -->
+            <div id="result" class="hidden">
+                {% if error_message %}
+                    <p class="error">{{ error_message }}</p>
+                {% elif prediction %}
+                    <h4>Sentiment: {{ prediction }}
+                        {% if prediction == "Positive" %}
+                            😊
+                        {% elif prediction == "Negative" %}
+                            ☹️
+                        {% elif prediction == "Neutral" %}
+                            😐
+                        {% endif %}
+                    </h4>
                 {% endif %}
             </div>
-            
         </div>
     </div>
 

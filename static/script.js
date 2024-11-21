@@ -1,7 +1,7 @@
 // Function to simulate emotion analysis
-function analyzeEmotion() {
-    const userInput = document.getElementById('user-input').value;
-    const resultDiv = document.getElementById('result');
+/*function analyzeEmotion() {
+    //const userInput = document.getElementById('user-input').value;
+    //const resultDiv = document.getElementById('result');
     
     if (!userInput.trim()) {
         resultDiv.style.display = 'none';
@@ -16,12 +16,52 @@ function analyzeEmotion() {
     resultDiv.textContent = `Emotion: ${emotion.charAt(0).toUpperCase() + emotion.slice(1)}`;
     resultDiv.className = `result ${emotion}`;
     resultDiv.style.display = 'block';
-}
+}*/
+
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.querySelector('form');
+    const textArea = document.getElementById('user-input');
+    const resultDiv = document.getElementById('result');
+
+    form.addEventListener('submit', async (event) => {
+        event.preventDefault(); // Prevent default form submission
+
+        const formData = new FormData(form);
+        const response = await fetch(form.action, {
+            method: 'POST',
+            body: formData,
+        });
+
+        // Parse response and update the result div
+        const html = await response.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+        const newResult = doc.querySelector('#result').innerHTML;
+
+        resultDiv.innerHTML = newResult;
+        textArea.value = ''; // Clear the text area
+    });
+});
+
+document.getElementById("emotionForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent the default form submission behavior
+
+    // Get the input value from the user
+    var userInput = document.getElementById("user-input").value;
+
+    // Check if there's any input
+    if (userInput.trim() !== "") {
+        // Show the result section
+        document.getElementById("result").classList.add("visible");
+    }
+});
+
+
 
 //ATOM polygon
 
 // Initialize particles.js with custom settings
-particlesJS("particles-js", {
+/*particlesJS("particles-js", {
     particles: {
         number: {
             value: 90, // Number of particles
@@ -105,7 +145,7 @@ particlesJS("particles-js", {
         }
     },
     retina_detect: true
-});
+});*/
 
 
 // FIREFLIES
@@ -375,67 +415,67 @@ particlesJS("particles-js", {
 
 //HOLOGRAPHIC MESH
 
-// particlesJS("particles-js", {
-//     particles: {
-//         number: {
-//             value: 100,
-//             density: {
-//                 enable: true,
-//                 value_area: 800
-//             }
-//         },
-//         shape: {
-//             type: "circle",
-//         },
-//         opacity: {
-//             value: 0.6,
-//             random: true,
-//             anim: {
-//                 enable: true,
-//                 speed: 0.2,
-//                 opacity_min: 0.1,
-//                 sync: false
-//             }
-//         },
-//         size: {
-//             value: 8,
-//             random: true,
-//             anim: {
-//                 enable: true,
-//                 speed: 2,
-//                 size_min: 3,
-//                 sync: false
-//             }
-//         },
-//         line_linked: {
-//             enable: true,
-//             distance: 150,
-//             color: "#00FF99",
-//             opacity: 0.2,
-//             width: 1
-//         },
-//         move: {
-//             enable: true,
-//             speed: 2,
-//             direction: "none",
-//             random: true,
-//             straight: false,
-//             out_mode: "out",
-//             bounce: false
-//         }
-//     },
-//     interactivity: {
-//         detect_on: "window",
-//         events: {
-//             onhover: {
-//                 enable: true,
-//                 mode: "grab"
-//             },
-//             onclick: {
-//                 enable: true,
-//                 mode: "push"
-//             }
-//         }
-//     },
-//     retina_detect: true
-// });
+particlesJS("particles-js", {
+    particles: {
+        number: {
+            value: 100,
+            density: {
+                enable: true,
+                value_area: 800
+            }
+        },
+        shape: {
+            type: "circle",
+        },
+        opacity: {
+            value: 0.6,
+            random: true,
+            anim: {
+                enable: true,
+                speed: 0.2,
+                opacity_min: 0.1,
+                sync: false
+            }
+        },
+        size: {
+            value: 8,
+            random: true,
+            anim: {
+                enable: true,
+                speed: 2,
+                size_min: 3,
+                sync: false
+            }
+        },
+        line_linked: {
+            enable: true,
+            distance: 150,
+            color: "#00FF99",
+            opacity: 0.2,
+            width: 1
+        },
+        move: {
+            enable: true,
+            speed: 2,
+            direction: "none",
+            random: true,
+            straight: false,
+            out_mode: "out",
+            bounce: false
+        }
+    },
+    interactivity: {
+        detect_on: "window",
+        events: {
+            onhover: {
+                enable: true,
+                mode: "grab"
+            },
+            onclick: {
+                enable: true,
+                mode: "push"
+            }
+        }
+    },
+    retina_detect: true
+});
