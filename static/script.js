@@ -1,24 +1,3 @@
-// Function to simulate emotion analysis
-/*function analyzeEmotion() {
-    //const userInput = document.getElementById('user-input').value;
-    //const resultDiv = document.getElementById('result');
-    
-    if (!userInput.trim()) {
-        resultDiv.style.display = 'none';
-        alert("Please enter a sentence to analyze.");
-        return;
-    }
-
-    // Simulated emotion response (replace with actual model integration)
-    const emotions = ["positive", "neutral", "negative"];
-    const emotion = emotions[Math.floor(Math.random() * emotions.length)];
-
-    resultDiv.textContent = `Emotion: ${emotion.charAt(0).toUpperCase() + emotion.slice(1)}`;
-    resultDiv.className = `result ${emotion}`;
-    resultDiv.style.display = 'block';
-}*/
-
-
 
 
 
@@ -444,16 +423,3 @@ particlesJS("particles-js", {
     retina_detect: true
 });*/
 
-
-document.getElementById("emotionForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent the default form submission behavior
-
-    // Get the input value from the user
-    var userInput = document.getElementById("user-input").value;
-
-    // Check if there's any input
-    if (userInput.trim() !== "") {
-        // Show the result section
-        document.getElementById("result").classList.add("visible");
-    }
-});

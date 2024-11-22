@@ -31,23 +31,27 @@
                 <button id="analyze-btn" type="submit">Analyze Sentiment</button>
             </form>
             
-            <!-- Display the result or error -->
-            <div id="result">
-                {% if error_message %}
-                    <p class="error">{{ error_message }}</p>
-                {% elif prediction %}
-                    <h4>Sentiment: {{ prediction }}</h4>
-                    <div class="emoji">
-                        {% if prediction == "Positive" %}
-                            😊
-                        {% elif prediction == "Negative" %}
-                            ☹️
-                        {% elif prediction == "Neutral" %}
-                            😐
-                        {% endif %}
-                    </div>
+<!-- Display the result or error -->
+<div id="result">
+    {% if error_message %}
+        <p class="error">{{ error_message }}</p>
+    {% elif prediction %}
+        <h4 class="sentiment-result">
+            Sentiment: {{ prediction }} 
+            <span class="emoji">
+                {% if prediction == "Positive" %}
+                    😊
+                {% elif prediction == "Negative" %}
+                    ☹️
+                {% elif prediction == "Neutral" %}
+                    😐
                 {% endif %}
-            </div>
+            </span>
+        </h4>
+    {% endif %}
+</div>
+
+
         </div>
     </div>
 
