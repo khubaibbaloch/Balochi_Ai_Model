@@ -16,14 +16,14 @@
     <header>
         <div class="header-container">
             <h1>Sentiment Analyzer</h1>
-            <p>Unleash the Power of AI to Understand Sentiment</p>
+            <p>Unleash the power of AI to analyze sentiment and gain deeper insights into emotions.</p>
         </div>
     </header>
 
     <div class="main-container">
         <div class="container">
             <h2>Discover Your Sentiment</h2>
-            <p>Enter a sentence and let AI reveal its sentiment tone.</p>
+            <p>Please enter a sentence in Balochi, and I will analyze its emotion tone for you.</p>
             
             <!-- Form to send data to Flask backend -->
             <form method="POST" action="/">
@@ -40,11 +40,11 @@
             Sentiment: {{ prediction }} 
             <span class="emoji">
                 {% if prediction == "Positive" %}
-                    😊
+                    🙂
                 {% elif prediction == "Negative" %}
-                    ☹️
+                    😞
                 {% elif prediction == "Neutral" %}
-                    😐
+                    😑
                 {% endif %}
             </span>
         </h4>
