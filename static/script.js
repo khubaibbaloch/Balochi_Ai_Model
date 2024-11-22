@@ -18,43 +18,6 @@
     resultDiv.style.display = 'block';
 }*/
 
-document.addEventListener('DOMContentLoaded', () => {
-    const form = document.querySelector('form');
-    const textArea = document.getElementById('user-input');
-    const resultDiv = document.getElementById('result');
-
-    form.addEventListener('submit', async (event) => {
-        event.preventDefault(); // Prevent default form submission
-
-        const formData = new FormData(form);
-        const response = await fetch(form.action, {
-            method: 'POST',
-            body: formData,
-        });
-
-        // Parse response and update the result div
-        const html = await response.text();
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(html, 'text/html');
-        const newResult = doc.querySelector('#result').innerHTML;
-
-        resultDiv.innerHTML = newResult;
-        textArea.value = ''; // Clear the text area
-    });
-});
-
-document.getElementById("emotionForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent the default form submission behavior
-
-    // Get the input value from the user
-    var userInput = document.getElementById("user-input").value;
-
-    // Check if there's any input
-    if (userInput.trim() !== "") {
-        // Show the result section
-        document.getElementById("result").classList.add("visible");
-    }
-});
 
 
 
@@ -62,7 +25,7 @@ document.getElementById("emotionForm").addEventListener("submit", function(event
 //ATOM polygon
 
 // Initialize particles.js with custom settings
-/*particlesJS("particles-js", {
+particlesJS("particles-js", {
     particles: {
         number: {
             value: 90, // Number of particles
@@ -146,7 +109,7 @@ document.getElementById("emotionForm").addEventListener("submit", function(event
         }
     },
     retina_detect: true
-});*/
+});
 
 
 // FIREFLIES
@@ -416,7 +379,7 @@ document.getElementById("emotionForm").addEventListener("submit", function(event
 
 //HOLOGRAPHIC MESH
 
-particlesJS("particles-js", {
+/*particlesJS("particles-js", {
     particles: {
         number: {
             value: 100,
@@ -479,4 +442,18 @@ particlesJS("particles-js", {
         }
     },
     retina_detect: true
+});*/
+
+
+document.getElementById("emotionForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent the default form submission behavior
+
+    // Get the input value from the user
+    var userInput = document.getElementById("user-input").value;
+
+    // Check if there's any input
+    if (userInput.trim() !== "") {
+        // Show the result section
+        document.getElementById("result").classList.add("visible");
+    }
 });

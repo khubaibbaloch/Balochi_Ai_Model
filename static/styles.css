@@ -158,6 +158,55 @@ form {
     transform: scale(1);
 }
 
+/* Styling for the result container */
+
+/* Styling for the result card */
+.result-card {
+    background: linear-gradient(90deg, #5d9eff, #c490ff);
+    color: #fff;
+    padding: 25px 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    animation: fadeIn 0.6s ease;
+}
+
+/* Sentiment title styling */
+.result-card h4 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #1d1f21;
+}
+
+/* Sentiment result text styling */
+.result-card .result-text {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-transform: capitalize;
+    color: #1d1f21;
+}
+
+/* Emoji styling */
+.result-card .emoji {
+    font-size: 50px;
+    margin-top: 15px;
+}
+
+/* Animation for smooth appearance */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
 /* Footer styling */
 footer {
     background-color: #1c1f34;
