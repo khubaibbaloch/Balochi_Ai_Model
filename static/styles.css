@@ -168,13 +168,3 @@ footer {
     user-select: none;
 }
 
-/* Initially hidden result section */
-#result {
-    display: none;
-    margin-top: 20px;
-}
-
-/* Visible result section */
-#result.visible {
-    display: block;
-}
