@@ -172,10 +172,12 @@ form {
     display: flex;
     justify-content: center; /* Centers the text and emoji horizontally */
     align-items: center;     /* Centers the text and emoji vertically */
+    font-size: 20px;
 }
 
 .emoji {
     margin-left: 10px;  /* Optional: adds some space between the text and emoji */
+    font-size: 20px;
 }
 
 
